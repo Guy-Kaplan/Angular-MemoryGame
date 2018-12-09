@@ -5,7 +5,6 @@ All Marvel names, characters, images, logos and movie names are copyrights of Ma
 All Rights Reserved.<br>
 The rest of the code is GPL v3.0.<br>
 
-## Click [here](https://Guy-Kaplan.github.io/Angular-MemoryGame/) to see the website
 Screenshots:
 ![screenshot1](/images/screenshot1.png)<br><br>
 ![screenshot2](/images/screenshot2.png)<br><br>
