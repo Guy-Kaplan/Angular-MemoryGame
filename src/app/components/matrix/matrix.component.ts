@@ -110,7 +110,7 @@ export class MatrixComponent implements OnInit {
     /// Function that sets the right and full images paths in a designated array.
     private initImagesPaths(): void {
         for(let i=0;i<this.imagesPaths.length;i++){
-            this.imagesPaths[i] = `./assets/images/${this.images[i].imageFileName}`;
+            this.imagesPaths[i] = `/assets/images/${this.images[i].imageFileName}`;
         }
     }
 
