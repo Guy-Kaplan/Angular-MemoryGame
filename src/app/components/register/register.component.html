@@ -1,0 +1,78 @@
+<h1><mat-icon>create</mat-icon> Register <mat-icon>create</mat-icon></h1>
+<form *ngIf="!usersService.isLoggedIn()" (ngSubmit)="addUser()" #myForm="ngForm" name="myForm">
+    <div>
+        <mat-icon>person</mat-icon>&nbsp;&nbsp;&nbsp;
+        <mat-form-field>
+        <!-- pattern makes sure full name is not all blank. -->
+        <input matInput type="text" name="fullName" id="fullNameTextBox" pattern="\w.*"
+        [(ngModel)]="user.fullName" placeholder="Full Name"
+        required autofocus #fullName="ngModel">
+        </mat-form-field>
+        <span *ngIf="fullName.dirty&&fullName.invalid">
+            Invalid Full Name
+        </span>
+    </div>
+    <div>
+        <mat-icon>account_box</mat-icon>&nbsp;&nbsp;&nbsp;
+        <mat-form-field>
+        <!-- pattern makes sure user name is not all blank. -->
+        <input matInput type="text" name="userName" pattern="\w.*"
+        [(ngModel)]="user.userName" placeholder="User Name"
+        required #userName="ngModel">
+        </mat-form-field>
+        <span *ngIf="userName.dirty&&userName.invalid">
+            Invalid User Name
+        </span>
+    </div>
+    <div>
+        <mat-icon>vpn_key</mat-icon>&nbsp;&nbsp;&nbsp;
+        <mat-form-field>
+        <!-- pattern makes sure password is not all blank. -->
+        <input matInput type="password" name="password" pattern="\w.*"
+        [(ngModel)]="user.password" placeholder="Password"
+        required #password="ngModel">
+        </mat-form-field>
+        <span *ngIf="password.dirty&&password.invalid">
+            Invalid Password
+        </span>
+    </div>
+    <div>
+        <mat-icon>email</mat-icon>&nbsp;&nbsp;&nbsp;
+        <mat-form-field>
+        <input matInput type="email" name="email" pattern="\w+@\w+\.\w+(\.\w+)*"
+        [(ngModel)]="user.email" placeholder="Email (optional)"
+        email #email="ngModel">
+        </mat-form-field>
+        <span *ngIf="email.dirty&&email.invalid">
+            Invalid Email
+        </span>
+    </div>
+    <div>
+        <mat-icon>date_range</mat-icon>&nbsp;&nbsp;&nbsp;
+        <mat-form-field>
+        <input matInput type="date" name="birthDate"
+        [(ngModel)]="user.birthDate" placeholder="Birth Date (optional)"
+        #birthDate="ngModel">
+        </mat-form-field>
+        <span *ngIf="birthDate.dirty&&birthDate.invalid">
+            Missing Birth Date
+        </span>
+    </div>
+    <div>
+        <button mat-button [disabled]="myForm.form.invalid">
+            Send&nbsp;&nbsp;<mat-icon>send</mat-icon>
+        </button>
+    </div>
+    <div>
+        <button mat-button type="reset">
+            Reset&nbsp;&nbsp;<mat-icon>cached</mat-icon>
+        </button>
+    </div>
+</form>
+<p *ngIf="usersService.isLoggedIn()">
+    You are already logged in as: {{userLoggedIn}}<br>
+    Sign out to register a new user:
+</p>
+<button mat-button *ngIf="usersService.isLoggedIn()" (click)="signOut()" id="signOut">
+    Sign out&nbsp;&nbsp;<mat-icon>exit_to_app</mat-icon>
+</button>

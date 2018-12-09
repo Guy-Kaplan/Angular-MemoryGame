@@ -1,0 +1,28 @@
+<h1><mat-icon>record_voice_over</mat-icon> Give a Feedback <mat-icon>record_voice_over</mat-icon></h1>
+<form *ngIf="usersService.isLoggedIn()" (ngSubmit)="addFeedback()" #myForm="ngForm">
+    <div>
+        <mat-icon>message</mat-icon>&nbsp;&nbsp;&nbsp;
+        <mat-form-field>
+        <!-- pattern makes sure feedback is not all blank. -->
+        <textarea matInput name="feedback" pattern="\w.*"
+        [(ngModel)]="myFeedback.feedback" placeholder="Feedback"
+        required autofocus #feedback="ngModel" rows="3">
+        </textarea>
+        </mat-form-field>
+        <span *ngIf="feedback.dirty&&feedback.invalid"><br>
+            Invalid Feedback
+        </span>
+    </div>
+    <div>
+        <button mat-button [disabled]="myForm.form.invalid">
+            Send&nbsp;&nbsp;<mat-icon>send</mat-icon>
+        </button>
+    </div>
+    <div>
+        <button mat-button type="reset">
+            Reset&nbsp;&nbsp;<mat-icon>cached</mat-icon>
+        </button>
+    </div>
+</form>
+<h2 *ngIf="!usersService.isLoggedIn()">ERROR (LOGIN REQUIRED)</h2>
+<h3 *ngIf="!usersService.isLoggedIn()">Redirecting to login page...</h3>

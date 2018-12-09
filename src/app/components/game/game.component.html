@@ -1,0 +1,4 @@
+<h1><mat-icon>view_module</mat-icon> The Game <mat-icon>view_module</mat-icon></h1>
+<app-matrix *ngIf="usersService.isLoggedIn()"></app-matrix>
+<h2 *ngIf="!usersService.isLoggedIn()">ERROR (LOGIN REQUIRED)</h2>
+<h3 *ngIf="!usersService.isLoggedIn()">Redirecting to login page...</h3>

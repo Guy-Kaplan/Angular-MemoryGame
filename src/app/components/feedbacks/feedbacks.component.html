@@ -1,0 +1,21 @@
+<h1><mat-icon>feedback</mat-icon> Feedbacks <mat-icon>feedback</mat-icon></h1>
+<table border="1">
+    <tr id="first">
+        <th>Date and Time</th>
+        
+        <th>User Name</th>
+        <th>Text</th>
+    </tr>
+
+    <tr *ngFor="let f of feedbacks">
+        <td>
+            {{f.dateAdded.substr(0, 10)}} , {{f.dateAdded.substr(11, 8)}}
+        </td>
+        <td>
+            {{getUserNameByID(f.userID)}}
+        </td>
+        <td>
+            {{f.feedback}}
+        </td>
+    </tr>
+</table>

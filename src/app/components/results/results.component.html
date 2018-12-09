@@ -1,0 +1,28 @@
+<h1><mat-icon>assignment</mat-icon> Results <mat-icon>assignment</mat-icon></h1>
+<table border="1">
+    <tr id="first">
+        <th>Date and Time</th>
+        <th>Full Name</th>
+        <th>User Name</th>
+        <th>Game Time</th>
+        <th>Steps</th>
+    </tr>
+
+    <tr *ngFor="let r of results">
+        <td>
+            {{r.dateAdded.substr(0, 10)}} , {{r.dateAdded.substr(11, 8)}}
+        </td>
+        <td>
+            {{getFullNameByID(r.userID)}}
+        </td>
+        <td>
+            {{getUserNameByID(r.userID)}}
+        </td>
+        <td>
+            {{r.timeSpan.substr(0, 5)}}
+        </td>
+        <td>
+            {{r.steps}}
+        </td>
+    </tr>
+</table>

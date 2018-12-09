@@ -1,0 +1,48 @@
+<h1><mat-icon>contact_mail</mat-icon> Contact Us <mat-icon>contact_mail</mat-icon></h1>
+<form (ngSubmit)="addContact()" #myForm="ngForm">
+    <div>
+        <mat-icon>phone</mat-icon>&nbsp;&nbsp;&nbsp;
+        <mat-form-field>
+        <input matInput type="tel" name="phone" pattern="\+?[\d-]+"
+        [(ngModel)]="contact.phone" placeholder="Phone (optional)"
+        autofocus #phone="ngModel">
+        </mat-form-field>
+        <span *ngIf="phone.dirty&&phone.invalid">
+            Invalid Phone Number
+        </span>
+    </div>
+    <div>
+        <mat-icon>email</mat-icon>&nbsp;&nbsp;&nbsp;
+        <mat-form-field>
+        <input matInput type="email" name="email" pattern="\w+@\w+\.\w+(\.\w+)*"
+        [(ngModel)]="contact.email" placeholder="Email (optional)"
+        email #email="ngModel">
+        </mat-form-field>
+        <span *ngIf="email.dirty&&email.invalid">
+            Invalid Email
+        </span>
+    </div>
+    <div>
+        <mat-icon>message</mat-icon>&nbsp;&nbsp;&nbsp;
+        <mat-form-field>
+        <!-- pattern makes sure message is not all blank. -->
+        <textarea matInput name="message" pattern="\w.*"
+        [(ngModel)]="contact.message" placeholder="Message"
+        required #message="ngModel">
+        </textarea>
+        </mat-form-field>
+        <span *ngIf="message.dirty&&message.invalid">
+            Invalid Message
+        </span>
+        </div>
+    <div>
+        <button mat-button [disabled]="myForm.form.invalid">
+            Send&nbsp;&nbsp;<mat-icon>send</mat-icon>
+        </button>
+    </div>
+    <div>
+        <button mat-button type="reset">
+            Reset&nbsp;&nbsp;<mat-icon>cached</mat-icon>
+        </button>
+    </div>
+</form>

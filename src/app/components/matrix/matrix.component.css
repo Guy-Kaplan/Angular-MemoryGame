@@ -1,0 +1,14 @@
+div{
+    background-image: url("https://am22.akamaized.net/tms/cnt/uploads/2013/04/mhrbgcover-640x437.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 3px solid black;
+    position: relative;
+    margin: auto;
+    width: 360px;
+    height: 370px;
+    padding: 0;
+}
+span{
+    font-size: 22px;
+}

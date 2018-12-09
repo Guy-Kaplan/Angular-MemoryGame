@@ -1,0 +1,11 @@
+<div>
+    <app-square *ngFor="let c of cards"
+        source="{{c.currentPath}}"
+        side="90"
+        id="{{c.id}}"
+        (click)="onclick(c.id)">
+    </app-square>
+</div>
+<span><u>User</u>: {{userLoggedIn}} | <u>Time</u>: {{stopperStr}} | <u>Steps</u>: {{numOfSteps}}</span>
+<br><br>
+<button (click)="startGame()">Restart</button>
