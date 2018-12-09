@@ -1,5 +1,5 @@
 # Angular-MemoryGame
-A Marvel website with a memory game for registered users, written in Angular.
+A website with a Marvel memory game for registered users, written in Angular, C# and SQL DB.
 
 All Marvel names, characters, images, logos and movie names are copyrights of Marvel Entertainment, LLC ©®<br>
 All Rights Reserved.<br>
