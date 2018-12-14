@@ -3,18 +3,21 @@
     <div>
         <mat-icon>phone</mat-icon>&nbsp;&nbsp;&nbsp;
         <mat-form-field>
-        <input matInput type="tel" name="phone" pattern="\+?[\d-]+"
+        <!-- pattern makes sure phone is valid. -->
+        <input matInput type="tel" name="phone" pattern="\+?[\d-]{3,20}"
         [(ngModel)]="contact.phone" placeholder="Phone (optional)"
         autofocus #phone="ngModel">
         </mat-form-field>
         <span *ngIf="phone.dirty&&phone.invalid">
-            Invalid Phone Number
+            Invalid Phone Number.<br>
+            Length MUST be 3-20 chars.
         </span>
     </div>
     <div>
         <mat-icon>email</mat-icon>&nbsp;&nbsp;&nbsp;
         <mat-form-field>
-        <input matInput type="email" name="email" pattern="\w+@\w+\.\w+(\.\w+)*"
+        <!-- pattern makes sure email is valid -->
+        <input matInput type="email" name="email" pattern="\w{1,10}\.?\w{1,10}@\w{1,10}\.\w{1,10}(\.\w{1,10}){0,3}"
         [(ngModel)]="contact.email" placeholder="Email (optional)"
         email #email="ngModel">
         </mat-form-field>
