@@ -3,43 +3,50 @@
     <div>
         <mat-icon>person</mat-icon>&nbsp;&nbsp;&nbsp;
         <mat-form-field>
-        <!-- pattern makes sure full name is not all blank. -->
-        <input matInput type="text" name="fullName" id="fullNameTextBox" pattern="\w.*"
+        <!-- pattern makes sure full name is valid. -->
+        <input matInput type="text" name="fullName" id="fullNameTextBox" pattern="[a-z A-Z]{1,20}"
         [(ngModel)]="user.fullName" placeholder="Full Name"
         required autofocus #fullName="ngModel">
         </mat-form-field>
         <span *ngIf="fullName.dirty&&fullName.invalid">
-            Invalid Full Name
+            Invalid Full Name.<br>
+            Use ONLY letters and spaces.<br>
+            Length MUST be 1-20 chars.
         </span>
     </div>
     <div>
         <mat-icon>account_box</mat-icon>&nbsp;&nbsp;&nbsp;
         <mat-form-field>
-        <!-- pattern makes sure user name is not all blank. -->
-        <input matInput type="text" name="userName" pattern="\w.*"
+        <!-- pattern makes sure user name is valid. -->        
+        <input matInput type="text" name="userName" pattern="[^\W_]{3,20}"
         [(ngModel)]="user.userName" placeholder="User Name"
         required #userName="ngModel">
         </mat-form-field>
         <span *ngIf="userName.dirty&&userName.invalid">
-            Invalid User Name
+            Invalid User Name.<br>
+            Use ONLY letters and digits.<br>
+            Length MUST be 3-20 chars.
         </span>
     </div>
     <div>
         <mat-icon>vpn_key</mat-icon>&nbsp;&nbsp;&nbsp;
         <mat-form-field>
-        <!-- pattern makes sure password is not all blank. -->
-        <input matInput type="password" name="password" pattern="\w.*"
+        <!-- pattern makes sure password is valid. -->
+        <input matInput type="password" name="password" pattern="\S{4,20}"
         [(ngModel)]="user.password" placeholder="Password"
         required #password="ngModel">
         </mat-form-field>
         <span *ngIf="password.dirty&&password.invalid">
-            Invalid Password
+            Invalid Password.<br>
+            DO NOT enter spaces.<br>
+            Length MUST be 4-20 chars.
         </span>
     </div>
     <div>
         <mat-icon>email</mat-icon>&nbsp;&nbsp;&nbsp;
         <mat-form-field>
-        <input matInput type="email" name="email" pattern="\w+@\w+\.\w+(\.\w+)*"
+        <!-- pattern makes sure email is valid -->
+        <input matInput type="email" name="email" pattern="\w{1,10}\.?\w{1,10}@\w{1,10}\.\w{1,10}(\.\w{1,10}){0,3}"
         [(ngModel)]="user.email" placeholder="Email (optional)"
         email #email="ngModel">
         </mat-form-field>
