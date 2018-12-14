@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace JohnBryce
 {
+    // for Contact Us page
     public class MessagesLogic : BaseLogic
     {
         public List<MessageModel> GetAllMessages()
