@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { UsersService } from '../../services/users.service';
 
@@ -9,6 +9,9 @@ import { UsersService } from '../../services/users.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+    @Input()
+    public pattern: string | RegExp // use RegEx checks for the form
 
     public user: User = new User();
     public users: User[];
