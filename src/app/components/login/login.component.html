@@ -1,26 +1,31 @@
 <h1><mat-icon>how_to_reg</mat-icon> Login <mat-icon>how_to_reg</mat-icon></h1>
-<!-- <form (ngSubmit)="send()" #myForm="ngForm"> -->
 <form *ngIf="!usersService.isLoggedIn()" (ngSubmit)="login()" #myForm="ngForm">
     <div>
         <mat-icon>account_box</mat-icon>&nbsp;&nbsp;&nbsp;
         <mat-form-field>
-        <input matInput type="text" name="userName"
+        <!-- pattern makes sure user name is valid. -->
+        <input matInput type="text" name="userName" pattern="[^\W_]{3,20}"
         [(ngModel)]="user.userName" placeholder="User Name"
         required autofocus #userName="ngModel">
         </mat-form-field>
         <span *ngIf="userName.dirty&&userName.invalid">
-            Missing User Name
+            Invalid User Name.<br>
+            Use ONLY letters and digits.<br>
+            Length MUST be 3-20 chars.
         </span>
     </div>
     <div>
         <mat-icon>vpn_key</mat-icon>&nbsp;&nbsp;&nbsp;
         <mat-form-field>
-        <input matInput type="password" name="password"
+        <!-- pattern makes sure password is valid. -->
+        <input matInput type="password" name="password" pattern="\S{4,20}"
         [(ngModel)]="user.password" placeholder="Password"
         required #password="ngModel">
         </mat-form-field>
         <span *ngIf="password.dirty&&password.invalid">
-            Missing Password
+            Invalid Password.<br>
+            DO NOT enter spaces.<br>
+            Length MUST be 4-20 chars.
         </span>
     </div>
     <div>
